@@ -17,6 +17,9 @@ if (module.hot) {
     // this is never called
     renderThings()
   })
+  // I've also tried
+  // module.hot.accept()
+  // module.hot.accept(context.id, () => {})
 
   // not even this works.
   module.hot.accept('./bats.examples.js', () => {
