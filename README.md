@@ -1,9 +1,7 @@
 # webpack-dynamic-hmr-example
 
-This is a work in progress, right now it's a bug reproduction.
+This is an example of how you can implement hot module replacement with
+`require.context`.
 
-Install dependencies, then run `npm run dev` and you'll see the issues.
-
-I'm trying to make the `renderThings` function run any time the `*.examples.js`
-files or their dependencies change. Would be a bonus if I could get it to
-run if `index.js` changes as well.
+I recorded a video you can watch about this:
+[youtube.com/watch?v=JGXAvgVHC5A](https://www.youtube.com/watch?v=JGXAvgVHC5A&list=PLV5CVI1eNcJgCrPH_e6d57KRUTiDZgs0u)

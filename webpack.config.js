@@ -17,24 +17,25 @@ module.exports = (env = process.env.NODE_ENV || 'development') => {
     },
     mode: prod ? 'production' : 'development',
     devtool: prod ? 'source-map' : 'cheap-module-source-map',
-    plugins: removeEmpty([
-      prod ? null : new webpack.HotModuleReplacementPlugin()
-    ]),
+    // note the intentional absense of the HotModuleReplacementPlugin
+    // this will be added automatically by webpack-serve
     serve: serve
       ? {
           content: here('./public'),
           clipboard: false,
-          // logLevel: 'warn', // defaults to 'info' and it's noisy
+          logLevel: 'warn', // defaults to 'info' and it's noisy
           hot: {
             hot: true
-            // logLevel: 'warn', // defaults to 'info' and it's noisy
-            // reload: true,
+            logLevel: 'warn', // defaults to 'info' and it's noisy
+            reload: true,
           }
         }
       : null
   })
 }
 
+// this takes an array or object and returns a new object or array with all
+// null/undefined properties removed
 function removeEmpty(input) {
   if (Array.isArray(input)) {
     return input.filter(item => item != null)
