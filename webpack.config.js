@@ -25,9 +25,9 @@ module.exports = (env = process.env.NODE_ENV || 'development') => {
           clipboard: false,
           logLevel: 'warn', // defaults to 'info' and it's noisy
           hot: {
-            hot: true
+            hot: true,
             logLevel: 'warn', // defaults to 'info' and it's noisy
-            reload: true,
+            reload: true
           }
         }
       : null
