@@ -1,18 +1,17 @@
-let context
+import { capitalBunnies } from './bunnies.examples'
+import { capitalBats } from './bats.examples'
 const root = document.getElementById('root')
+
 
 function renderThings() {
   console.log('rendering 3')
-  context = require.context('.', true, /\/.*\.examples\.js/)
-  const allThings = context.keys().map(path => context(path))
-  root.innerHTML = `<pre>${JSON.stringify(allThings, null, 2)}</pre>`
+  const items = [{capitalBats: capitalBats}, {capitalBunnies: capitalBunnies}]
+  root.innerHTML = `<pre>${JSON.stringify(items, null, 2)}</pre>`
 }
 
 renderThings()
 
 if (module.hot) {
   // self-accept
-  module.hot.accept(renderThings)
-  // called whenever files that match the context are updated (or their deps).
-  module.hot.accept(context.id, renderThings)
+  module.hot.accept()
 }
